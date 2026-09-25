@@ -1,7 +1,7 @@
 # Trailheadai site
 
-Soft-launch sell page for Trailheadai (Travis Lee).
+Soft-launch sell page for Trailheadai / Trailhead AI (Travis Lee).
 
-Live (after Pages is on): https://y7zyc9hp9v-cpu.github.io/trailheadai-site/
+Live: https://y7zyc9hp9v-cpu.github.io/trailheadai-site/
 
-Placeholder: Cash App cashtag — do not invent one.
+Cash App: `$TrailHeadaiwi` · Email: trailheadaiwisco@gmail.com

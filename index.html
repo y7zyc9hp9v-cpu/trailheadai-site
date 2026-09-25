@@ -5,207 +5,349 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trailheadai — simple pages for local businesses</title>
   <meta name="description" content="Trailheadai builds phone-friendly web pages for local businesses. Soft launch with Travis Lee." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --accent: #38bdf8;
-      --accent2: #a7f3d0;
+      --bg: #09090b;
+      --bg-elev: #111113;
+      --line: #27272a;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --cream: #e8e0d4;
+      --cream-ink: #18181b;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.45;
-      font-size: 20px;
+      line-height: 1.5;
+      font-size: 18px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.1rem 1.25rem 0.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand img, .brand svg {
+      width: 2rem;
+      height: 2rem;
+      display: block;
+      flex-shrink: 0;
+    }
+    .wordmark {
+      font-family: Syne, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .wordmark span {
+      display: block;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .soft {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
     }
     main {
       max-width: 42rem;
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
-    }
-    h1 {
-      font-size: 2rem;
-      line-height: 1.15;
-      margin: 0 0 0.75rem;
-    }
-    h2 {
-      font-size: 1.35rem;
-      margin: 1.75rem 0 0.6rem;
-    }
-    h3 {
-      font-size: 1.15rem;
-      margin: 0 0 0.25rem;
-      color: var(--text);
-    }
-    p, li { color: var(--muted); font-size: 1.1rem; }
-    .tag {
-      display: inline-block;
-      background: #334155;
-      color: var(--accent2);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 1.1rem 1.15rem;
-      margin: 1rem 0;
-    }
-    .card strong.label { color: var(--accent2); font-size: 0.95rem; }
-    ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
-    li { margin: 0.45rem 0; }
-    .price {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 0.25rem 0;
-    }
-    .note {
-      font-size: 0.95rem;
-      color: #94a3b8;
-      margin-top: 0.75rem;
-    }
-    .steps { counter-reset: step; list-style: none; padding-left: 0; }
-    .steps li {
-      counter-increment: step;
-      margin: 0.7rem 0;
-      padding-left: 2.4rem;
+      padding: 1.25rem 1.25rem 3rem;
       position: relative;
     }
-    .steps li::before {
-      content: counter(step);
+    .hero-mark {
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 999px;
-      background: #334155;
-      color: var(--accent);
+      right: -1rem;
+      top: 2rem;
+      width: 14rem;
+      height: 14rem;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.75rem 0 0.85rem;
+    }
+    h1 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: clamp(1.85rem, 6vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin: 0 0 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.35rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      margin: 2rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      color: inherit;
+    }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .note { font-size: 0.95rem; color: #71717a; }
+    .cards { display: grid; gap: 0.9rem; margin-top: 0.5rem; }
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.15rem 1.2rem;
+    }
+    .card.featured {
+      background: var(--cream);
+      color: var(--cream-ink);
+      border-color: transparent;
+    }
+    .card.featured p,
+    .card.featured li,
+    .card.featured .meta { color: #3f3f46; }
+    .card.featured .price { color: var(--cream-ink); }
+    .card-top {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+    .meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .price {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0.15rem 0 0.7rem;
+    }
+    .label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: inherit;
+      opacity: 0.75;
+      margin: 0.65rem 0 0.2rem;
+    }
+    ul { padding-left: 1.1rem; margin: 0.25rem 0 0; }
+    li { margin: 0.4rem 0; color: var(--muted); }
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      overflow: hidden;
+    }
+    .steps li {
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      margin: 0;
+      padding: 0.95rem 1.1rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+    }
+    .steps li:last-child { border-bottom: 0; }
+    .steps .n {
+      font-family: Syne, system-ui, sans-serif;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .pay-box .cashtag {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0.2rem 0 0.85rem;
+      letter-spacing: -0.01em;
     }
     .cta {
       display: block;
       width: 100%;
       text-align: center;
-      margin-top: 1.25rem;
-      padding: 1rem 1.25rem;
-      border: none;
-      border-radius: 0.9rem;
-      background: var(--accent);
-      color: #0f172a;
-      font-size: 1.15rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .cta:active { opacity: 0.9; }
-    .cta.secondary {
-      background: #334155;
-      color: var(--text);
       margin-top: 0.75rem;
+      padding: 0.95rem 1.15rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
     }
+    .cta.primary {
+      background: var(--cream);
+      color: var(--cream-ink);
+    }
+    .cta.ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: #3f3f46;
+    }
+    a.inline { color: var(--cream); }
     footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #64748b;
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: #71717a;
       text-align: center;
     }
-    a.inline { color: var(--accent); }
   </style>
 </head>
 <body>
-  <main>
-    <span class="tag">Trailheadai · soft launch</span>
-    <h1>Simple web pages for local businesses</h1>
+  <header>
+    <a class="brand" href="#top" aria-label="Trailhead AI home">
+      <svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="#fafafa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M32 8 L56 52 H8 Z" />
+        <path d="M32 20 L48 48 H16 Z" />
+        <path d="M32 36 L36 44 H28 Z" />
+        <path d="M32 44 V54" />
+      </svg>
+      <div class="wordmark">Trailhead AI<span>Trailheadai</span></div>
+    </a>
+    <div class="soft">Soft launch</div>
+  </header>
+
+  <main id="top">
+    <svg class="hero-mark" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="#fafafa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M32 8 L56 52 H8 Z" />
+      <path d="M32 20 L48 48 H16 Z" />
+      <path d="M32 36 L36 44 H28 Z" />
+      <path d="M32 44 V54" />
+    </svg>
+
+    <p class="eyebrow">Phone-friendly pages for local businesses</p>
+    <h1>A clean page your customers can actually use.</h1>
     <p>
-      Trailheadai builds clean, phone-friendly pages so a shop, salon, or service
-      can look real online — without a maze of apps or a big agency bill.
+      Trailheadai builds simple, phone-first web pages for shops, salons, and local services —
+      without a big agency bill or a maze of apps.
     </p>
     <p class="note">Soft launch with Travis Lee. First buyers are people he knows.</p>
 
-    <h2>Offers</h2>
+    <a class="cta primary" href="#pay">Pay with Cash App →</a>
+    <a class="cta ghost" href="#offers">See offers ↘</a>
 
-    <div class="card">
-      <h3>Page</h3>
-      <p class="price">$85</p>
-      <p><strong class="label">Included</strong></p>
-      <ul>
-        <li>One phone-friendly page</li>
-        <li>Your name + tagline</li>
-        <li>Up to 3 cards of content</li>
-        <li>Live URL when done</li>
-      </ul>
-      <p><strong class="label">Not included</strong></p>
-      <ul>
-        <li>Bots, custom domain, extra pages</li>
-        <li>Unlimited revisions or deep setup</li>
-      </ul>
-    </div>
+    <h2 id="offers">Offers</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top">
+          <h3>Page</h3>
+          <span class="meta">Starter</span>
+        </div>
+        <p class="price">$85</p>
+        <div class="label">Included</div>
+        <ul>
+          <li>One phone-friendly page</li>
+          <li>Your name + tagline</li>
+          <li>Up to 3 cards of content</li>
+          <li>Live URL when done</li>
+        </ul>
+        <div class="label">Not included</div>
+        <ul>
+          <li>Bots, custom domain, extra pages</li>
+          <li>Unlimited revisions or deep setup</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>Setup Pack</h3>
-      <p class="price">$300</p>
-      <p><strong class="label">Included</strong></p>
-      <ul>
-        <li>The page above</li>
-        <li>Contact form that goes to your email</li>
-        <li>Domain wire (you buy the domain)</li>
-        <li>Notes pass for your 3 cards</li>
-        <li>2 revision rounds in 14 days</li>
-        <li>Free GitHub Pages hosting</li>
-      </ul>
-    </div>
+      <div class="card featured">
+        <div class="card-top">
+          <h3>Setup Pack</h3>
+          <span class="meta">Usual</span>
+        </div>
+        <p class="price">$300</p>
+        <div class="label">Included</div>
+        <ul>
+          <li>The page above</li>
+          <li>Contact form → your email</li>
+          <li>Domain wire (you buy the domain)</li>
+          <li>Notes pass for your 3 cards</li>
+          <li>2 revision rounds in 14 days</li>
+          <li>Free GitHub Pages hosting</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>Local Site</h3>
-      <p class="price">$1,100</p>
-      <p><strong class="label">Included</strong></p>
-      <ul>
-        <li>1–3 pages</li>
-        <li>Brand pass</li>
-        <li>Form + basic analytics</li>
-        <li>Domain + host wire</li>
-        <li>30-minute kickoff</li>
-        <li>Written scope</li>
-        <li>3 revision rounds in 21 days</li>
-        <li>Optional: Google Business / map / review prompts (text only)</li>
-      </ul>
+      <div class="card">
+        <div class="card-top">
+          <h3>Local Site</h3>
+          <span class="meta">Scoped</span>
+        </div>
+        <p class="price">$1,100</p>
+        <div class="label">Included</div>
+        <ul>
+          <li>1–3 pages</li>
+          <li>Brand pass</li>
+          <li>Form + basic analytics</li>
+          <li>Domain + host wire</li>
+          <li>30-minute kickoff</li>
+          <li>Written scope</li>
+          <li>3 revision rounds in 21 days</li>
+          <li>Optional GBP / map / review prompts (text only)</li>
+        </ul>
+      </div>
     </div>
 
     <h2>How it works</h2>
     <ol class="steps">
-      <li>You pay (Cash App — see below).</li>
-      <li>Travis green-lights the build.</li>
-      <li>We build your page.</li>
-      <li>You get a live URL.</li>
+      <li><span class="n">01</span><span>You pay on Cash App.</span></li>
+      <li><span class="n">02</span><span>Travis green-lights the build.</span></li>
+      <li><span class="n">03</span><span>We build your page.</span></li>
+      <li><span class="n">04</span><span>You get a live URL.</span></li>
     </ol>
 
-    <h2>Pay &amp; contact</h2>
-    <div class="card">
-      <p><strong class="label">Email</strong></p>
+    <h2 id="pay">Pay &amp; contact</h2>
+    <div class="card pay-box">
+      <div class="label">Cash App</div>
+      <p class="cashtag">$TrailHeadaiwi</p>
+      <p>Send payment to <strong>$TrailHeadaiwi</strong> on Cash App. No Stripe. No auto-checkout.</p>
+      <a class="cta primary" href="https://cash.app/$TrailHeadaiwi">Open Cash App $TrailHeadaiwi →</a>
+      <div class="label" style="margin-top:1.1rem">Email</div>
       <p><a class="inline" href="mailto:trailheadaiwisco@gmail.com">trailheadaiwisco@gmail.com</a></p>
-      <p><strong class="label">Cash App</strong></p>
-      <p>Cash App — cashtag coming (account being set up). No Stripe. No auto-checkout.</p>
-      <a class="cta" href="mailto:trailheadaiwisco@gmail.com?subject=Trailheadai%20interest">Email Trailheadai</a>
-      <a class="cta secondary" href="mailto:trailheadaiwisco@gmail.com?subject=Trailheadai%20—%20which%20offer">Ask which offer fits</a>
+      <a class="cta ghost" href="mailto:trailheadaiwisco@gmail.com?subject=Trailheadai%20interest">Email Trailheadai</a>
     </div>
 
     <footer>
-      Trailheadai · Travis Lee · Wisconsin<br />
-      Custom domain later — this page is on free GitHub Pages for now.
+      Trailhead AI · Trailheadai · Travis Lee · Wisconsin<br />
+      Custom domain later — this sell page is on free GitHub Pages for now.
     </footer>
   </main>
 </body>
