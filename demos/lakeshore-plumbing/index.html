@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bayshore Plumbing Co. — Door County &amp; Lakeshore WI</title>
+  <meta name="description" content="Bayshore Plumbing Co. — emergency and scheduled plumbing for Door County and the Wisconsin lakeshore. Sample demo for Trailheadai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-elev: #111113;
+      --line: #27272a;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --cream: #e8e0d4;
+      --cream-ink: #18181b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 17px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.1rem 1.25rem 0.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo-mark { width: 2.5rem; height: 2.5rem; flex-shrink: 0; }
+    .wordmark {
+      font-family: Syne, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .wordmark span {
+      display: block;
+      font-weight: 600;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--cream-ink);
+      background: var(--cream);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 3rem;
+    }
+    .demo-banner {
+      background: #141414;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 0.85rem;
+      margin: 0.5rem 0 1.25rem;
+      line-height: 1.4;
+    }
+    .demo-banner strong { color: var(--cream); }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.5rem 0 0.75rem;
+    }
+    h1 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+    }
+    h3 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .cards { display: grid; gap: 0.9rem; margin-top: 0.5rem; }
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.15rem 1.2rem;
+    }
+    .meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    ul { padding-left: 1.1rem; margin: 0.25rem 0 0; }
+    li { margin: 0.35rem 0; color: var(--muted); }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.65rem;
+      padding: 0.95rem 1.15rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .cta.primary {
+      background: var(--cream);
+      color: var(--cream-ink);
+    }
+    .cta.ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: #3f3f46;
+    }
+    .sample-note {
+      font-size: 0.82rem;
+      color: #71717a;
+      margin-top: 0.5rem;
+    }
+    a.inline { color: var(--cream); }
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: #71717a;
+      text-align: center;
+    }
+    footer a { color: var(--cream); }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top" aria-label="Bayshore Plumbing Co. home">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" fill="none">
+        <circle cx="32" cy="32" r="30" fill="#111113" stroke="#27272a" stroke-width="2"/>
+        <path d="M20 40 V26 Q20 18 32 18 Q44 18 44 26 V40" stroke="#e8e0d4" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M24 40 H40" stroke="#e8e0d4" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="28" r="3" fill="#e8e0d4"/>
+        <path d="M32 31 V38" stroke="#e8e0d4" stroke-width="2" stroke-linecap="round"/>
+        <path d="M18 46 H46" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <div class="wordmark">Bayshore Plumbing<span>Door County · Lakeshore WI</span></div>
+    </a>
+    <span class="badge">Sample demo</span>
+  </header>
+
+  <main id="top">
+    <div class="demo-banner">
+      <strong>Sample demo for Trailheadai</strong> — fictional Wisconsin plumbing company for portfolio use.
+      Phone number below is a sample placeholder, not a real business line.
+    </div>
+
+    <p class="eyebrow">Emergency + scheduled service</p>
+    <h1>Reliable plumbing for the lakeshore.</h1>
+    <p>
+      Bayshore Plumbing Co. handles burst pipes, slow drains, water heaters, and the routine work
+      that keeps Door County homes and cabins running — year-round.
+    </p>
+
+    <a class="cta primary" href="tel:+19205550142">Call (920) 555-0142 →</a>
+    <p class="sample-note">Sample WI number for this demo only — not a live dispatch line.</p>
+    <a class="cta ghost" href="#services">See services ↘</a>
+
+    <h2 id="services">Services</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="meta">24/7 call-out</span>
+        <h3>Emergency Repair</h3>
+        <p style="margin:0.4rem 0 0">Leaks, frozen lines, no-hot-water, and backups. We prioritize same-day when we can.</p>
+        <ul>
+          <li>Burst / frozen pipe response</li>
+          <li>Sewer &amp; drain backups</li>
+          <li>Water heater failures</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="meta">By appointment</span>
+        <h3>Scheduled Service</h3>
+        <p style="margin:0.4rem 0 0">Fixture installs, remodels, and the jobs you can plan around cabin season.</p>
+        <ul>
+          <li>Faucets, toilets, showers</li>
+          <li>Kitchen &amp; bath remodels</li>
+          <li>Seasonal open / close checks</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="meta">Prevention</span>
+        <h3>Drain &amp; Maintenance</h3>
+        <p style="margin:0.4rem 0 0">Keep lines clear before guests arrive. Camera inspect and hydro-jet when needed.</p>
+        <ul>
+          <li>Drain clearing</li>
+          <li>Camera inspection</li>
+          <li>Annual maintenance plans</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Book a visit</h2>
+    <div class="card">
+      <p style="margin-bottom:0.4rem">
+        <strong style="color:var(--text)">Phone</strong> ·
+        <a class="inline" href="tel:+19205550142">(920) 555-0142</a>
+        <span style="color:#71717a"> (sample)</span>
+      </p>
+      <p style="margin:0">Serving Door County, Sturgeon Bay, and nearby lakeshore towns.</p>
+      <a class="cta primary" href="tel:+19205550142">Call Bayshore Plumbing</a>
+    </div>
+
+    <footer>
+      Sample demo for <a href="../../">Trailheadai</a> · Bayshore Plumbing Co. · fictional WI business<br />
+      Built as a Trailheadai portfolio example — not a live company.
+    </footer>
+  </main>
+</body>
+</html>

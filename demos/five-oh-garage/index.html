@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Five-Oh Garage — Mobile Detailing · Manitowoc WI</title>
+  <meta name="description" content="Five-Oh Garage Mobile Detailing in Manitowoc, WI. Full interior and exterior packages from $150 — we come to you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-elev: #111113;
+      --line: #27272a;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --cream: #e8e0d4;
+      --cream-ink: #18181b;
+      --purple: #7c5cff;
+      --purple-ink: #fafafa;
+      --red: #ef4444;
+      --blue: #3b82f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 17px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.1rem 1.25rem 0.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo-mark {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+    }
+    .wordmark {
+      font-family: Syne, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .wordmark span {
+      display: block;
+      font-weight: 600;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--cream-ink);
+      background: var(--cream);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 3rem;
+    }
+    .demo-banner {
+      background: #1a1528;
+      border: 1px solid #3b2f5c;
+      color: #c4b5fd;
+      font-size: 0.82rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 0.85rem;
+      margin: 0.5rem 0 1.25rem;
+      line-height: 1.4;
+    }
+    .demo-banner strong { color: #e9e0ff; }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.5rem 0 0.75rem;
+    }
+    h1 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin: 0 0 0.65rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .price-line {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 1rem;
+    }
+    .price-line em {
+      font-style: normal;
+      color: var(--purple);
+    }
+    .cards { display: grid; gap: 0.9rem; margin-top: 0.5rem; }
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.15rem 1.2rem;
+    }
+    .card.featured {
+      background: #16122a;
+      border-color: #4c3d7a;
+    }
+    .meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .pkg-price {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin: 0.25rem 0 0.55rem;
+      color: var(--text);
+    }
+    .card.featured .pkg-price { color: #c4b5fd; }
+    ul { padding-left: 1.1rem; margin: 0.25rem 0 0; }
+    li { margin: 0.35rem 0; color: var(--muted); }
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .ph {
+      aspect-ratio: 4/3;
+      border-radius: 0.9rem;
+      border: 1px dashed #3f3f46;
+      background: linear-gradient(135deg, #111113 0%, #1c1c22 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.75rem;
+      color: #71717a;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ph strong {
+      display: block;
+      color: #a1a1aa;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.65rem;
+      padding: 0.95rem 1.15rem;
+      border-radius: 999px;
+      font-size: 1.02rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .cta.primary {
+      background: var(--purple);
+      color: var(--purple-ink);
+    }
+    .cta.cream {
+      background: var(--cream);
+      color: var(--cream-ink);
+    }
+    .cta.ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: #3f3f46;
+    }
+    .cta-row { display: grid; gap: 0.55rem; margin-top: 0.75rem; }
+    a.inline { color: #c4b5fd; }
+    .claim {
+      font-size: 0.85rem;
+      color: #71717a;
+      margin-top: 0.75rem;
+    }
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: #71717a;
+      text-align: center;
+    }
+    footer a { color: var(--cream); }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top" aria-label="Five-Oh Garage home">
+      <svg class="logo-mark" viewBox="0 0 96 96" aria-hidden="true">
+        <circle cx="48" cy="48" r="46" fill="#0a0a0c" stroke="#27272a" stroke-width="2"/>
+        <circle cx="48" cy="48" r="40" fill="none" stroke="#1f1f23" stroke-width="1"/>
+        <!-- car body -->
+        <path d="M22 56 L28 42 Q32 34 40 34 H56 Q64 34 68 42 L74 56 Z" fill="#111113" stroke="#fafafa" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M30 56 H66" stroke="#fafafa" stroke-width="2" stroke-linecap="round"/>
+        <!-- windows -->
+        <path d="M34 44 H46 L48 36 H40 Q35 36 34 44 Z" fill="#27272a"/>
+        <path d="M50 36 H56 Q61 36 62 44 H50 L50 36 Z" fill="#27272a"/>
+        <!-- wheels -->
+        <circle cx="34" cy="58" r="6" fill="#09090b" stroke="#fafafa" stroke-width="2"/>
+        <circle cx="62" cy="58" r="6" fill="#09090b" stroke="#fafafa" stroke-width="2"/>
+        <!-- emergency lights -->
+        <rect x="40" y="28" width="8" height="5" rx="1.5" fill="#ef4444"/>
+        <rect x="48" y="28" width="8" height="5" rx="1.5" fill="#3b82f6"/>
+        <circle cx="44" cy="30.5" r="1.2" fill="#fecaca"/>
+        <circle cx="52" cy="30.5" r="1.2" fill="#bfdbfe"/>
+      </svg>
+      <div class="wordmark">Five-Oh Garage<span>Est. 2020 · Manitowoc</span></div>
+    </a>
+    <span class="badge">Sample demo</span>
+  </header>
+
+  <main id="top">
+    <div class="demo-banner">
+      <strong>Sample demo for Trailheadai</strong> — example page for Five-Oh Garage Mobile Detailing.
+      Not affiliated with or owned by their Facebook page. Contact details below are for demo use as provided.
+    </div>
+
+    <p class="eyebrow">Mobile vehicle detailing · Manitowoc, WI</p>
+    <h1>We come to you. Your car leaves looking like new.</h1>
+    <p class="price-line">Full packages from <em>$150</em></p>
+    <p>
+      Five-Oh Garage brings professional interior and exterior detailing to your driveway —
+      home or work. No drop-off. No waiting room. Just a clean ride.
+    </p>
+
+    <a class="cta primary" href="tel:+19206772508">Call (920) 677-2508 →</a>
+    <a class="cta ghost" href="sms:+19206772508">Text to book</a>
+
+    <h2>About / mobile service</h2>
+    <div class="card">
+      <p style="margin:0;color:var(--muted)">
+        Based in Manitowoc, we roll to your location with everything needed for a full detail.
+        Interior deep-clean, exterior wash &amp; protect, and combo packages that fit a busy schedule.
+        Serving Manitowoc and nearby lakeshore towns.
+      </p>
+    </div>
+
+    <h2>Packages</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="meta">Exterior</span>
+        <h3>Street Clean</h3>
+        <p class="pkg-price">from $150</p>
+        <ul>
+          <li>Hand wash &amp; dry</li>
+          <li>Wheels &amp; tires dressed</li>
+          <li>Windows &amp; mirrors</li>
+          <li>Quick protectant</li>
+        </ul>
+      </div>
+      <div class="card featured">
+        <span class="meta">Most booked</span>
+        <h3>Full Detail</h3>
+        <p class="pkg-price">from $225</p>
+        <ul>
+          <li>Everything in Street Clean</li>
+          <li>Full interior vacuum &amp; wipe-down</li>
+          <li>Carpet / mat shampoo</li>
+          <li>Dash &amp; console detail</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="meta">Interior focus</span>
+        <h3>Cabin Reset</h3>
+        <p class="pkg-price">from $175</p>
+        <ul>
+          <li>Deep vacuum all surfaces</li>
+          <li>Stain treatment on seats &amp; carpets</li>
+          <li>Leather / vinyl conditioned</li>
+          <li>Odor neutralize pass</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Before / after</h2>
+    <p style="font-size:0.9rem">Gallery placeholders — real client photos go here when you send them.</p>
+    <div class="gallery">
+      <div class="ph"><strong>Before</strong>Exterior wash placeholder</div>
+      <div class="ph"><strong>After</strong>Exterior wash placeholder</div>
+      <div class="ph"><strong>Before</strong>Interior clean placeholder</div>
+      <div class="ph"><strong>After</strong>Interior clean placeholder</div>
+    </div>
+
+    <h2>Contact</h2>
+    <div class="card">
+      <p style="margin-bottom:0.35rem"><strong style="color:var(--text)">Phone</strong> · <a class="inline" href="tel:+19206772508">(920) 677-2508</a></p>
+      <p style="margin-bottom:0.35rem"><strong style="color:var(--text)">Email</strong> · <a class="inline" href="mailto:Realfiveohgarage@gmail.com">Realfiveohgarage@gmail.com</a></p>
+      <p style="margin-bottom:0.35rem"><strong style="color:var(--text)">Venmo</strong> · <a class="inline" href="https://venmo.com/u/FiveOhGarage" target="_blank" rel="noopener">@FiveOhGarage</a></p>
+      <p class="claim">Site claim <strong style="color:#a1a1aa">Fiveohgarage.com</strong> is DEMO ONLY — not purchased. Shown here as text for the sample.</p>
+      <div class="cta-row">
+        <a class="cta primary" href="tel:+19206772508">Call now</a>
+        <a class="cta cream" href="sms:+19206772508">Text us</a>
+        <a class="cta ghost" href="mailto:Realfiveohgarage@gmail.com">Email</a>
+        <a class="cta ghost" href="https://venmo.com/u/FiveOhGarage" target="_blank" rel="noopener">Pay on Venmo</a>
+      </div>
+    </div>
+
+    <footer>
+      Sample demo for <a href="../../">Trailheadai</a> · Five-Oh Garage · Manitowoc WI<br />
+      Not a claim of ownership of any Facebook page or brand assets beyond this sample.
+    </footer>
+  </main>
+</body>
+</html>

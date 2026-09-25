@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbor Goods Market — Manitowoc WI</title>
+  <meta name="description" content="Harbor Goods Market — small local shop on the Manitowoc lakeshore. Sample demo for Trailheadai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-elev: #111113;
+      --line: #27272a;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --cream: #e8e0d4;
+      --cream-ink: #18181b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 17px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1.1rem 1.25rem 0.5rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .logo-mark { width: 2.5rem; height: 2.5rem; flex-shrink: 0; }
+    .wordmark {
+      font-family: Syne, system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .wordmark span {
+      display: block;
+      font-weight: 600;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--cream-ink);
+      background: var(--cream);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 3rem;
+    }
+    .demo-banner {
+      background: #141414;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 0.85rem;
+      margin: 0.5rem 0 1.25rem;
+      line-height: 1.4;
+    }
+    .demo-banner strong { color: var(--cream); }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0.5rem 0 0.75rem;
+    }
+    h1 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+    }
+    h3 {
+      font-family: Syne, system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .cards { display: grid; gap: 0.9rem; margin-top: 0.5rem; }
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.15rem 1.2rem;
+    }
+    .meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 1rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hours-grid dt { color: var(--text); font-weight: 500; }
+    .hours-grid dd { margin: 0; text-align: right; }
+    ul { padding-left: 1.1rem; margin: 0.25rem 0 0; }
+    li { margin: 0.35rem 0; color: var(--muted); }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.65rem;
+      padding: 0.95rem 1.15rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .cta.primary {
+      background: var(--cream);
+      color: var(--cream-ink);
+    }
+    .cta.ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: #3f3f46;
+    }
+    .sample-note {
+      font-size: 0.82rem;
+      color: #71717a;
+      margin-top: 0.5rem;
+    }
+    a.inline { color: var(--cream); }
+    footer {
+      margin-top: 2.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      color: #71717a;
+      text-align: center;
+    }
+    footer a { color: var(--cream); }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top" aria-label="Harbor Goods Market home">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" fill="none">
+        <circle cx="32" cy="32" r="30" fill="#111113" stroke="#27272a" stroke-width="2"/>
+        <path d="M12 38 Q32 28 52 38" stroke="#e8e0d4" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M14 42 Q32 34 50 42" stroke="#a1a1aa" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+        <path d="M28 36 L32 18 L36 36 Z" fill="#e8e0d4"/>
+        <rect x="30.5" y="36" width="3" height="8" fill="#e8e0d4"/>
+      </svg>
+      <div class="wordmark">Harbor Goods<span>Market · Manitowoc</span></div>
+    </a>
+    <span class="badge">Sample demo</span>
+  </header>
+
+  <main id="top">
+    <div class="demo-banner">
+      <strong>Sample demo for Trailheadai</strong> — fictional Manitowoc-area retail shop for portfolio use.
+      Phone number below is a sample placeholder.
+    </div>
+
+    <p class="eyebrow">Local shop · lakeshore Manitowoc</p>
+    <h1>Everyday goods with a harbor-town feel.</h1>
+    <p>
+      Harbor Goods Market is a small neighborhood shop for pantry staples, Wisconsin-made gifts,
+      and seasonal finds — a quick stop near the waterfront.
+    </p>
+
+    <a class="cta primary" href="tel:+19205550187">Call (920) 555-0187 →</a>
+    <p class="sample-note">Sample WI number for this demo only.</p>
+    <a class="cta ghost" href="#visit">Hours &amp; visit ↘</a>
+
+    <h2>What we carry</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="meta">Pantry</span>
+        <h3>Kitchen Staples</h3>
+        <p style="margin:0.4rem 0 0">Coffee, local honey, crackers, sauces, and the everyday items you run out of mid-week.</p>
+        <ul>
+          <li>Fresh &amp; shelf-stable basics</li>
+          <li>Wisconsin brands when we can</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="meta">Gifts</span>
+        <h3>Harbor Finds</h3>
+        <p style="margin:0.4rem 0 0">Small gifts, cards, and lakeshore keepsakes — good for visitors and hosts alike.</p>
+        <ul>
+          <li>Housewarming &amp; host gifts</li>
+          <li>Seasonal displays</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="meta">Seasonal</span>
+        <h3>Market Board</h3>
+        <p style="margin:0.4rem 0 0">Rotating produce, bakery drops, and weekend specials posted in-store.</p>
+        <ul>
+          <li>Weekend bakery when available</li>
+          <li>Ask the counter for today’s board</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="visit">Hours &amp; visit</h2>
+    <div class="card">
+      <dl class="hours-grid">
+        <dt>Mon – Fri</dt><dd>9:00a – 6:00p</dd>
+        <dt>Saturday</dt><dd>9:00a – 4:00p</dd>
+        <dt>Sunday</dt><dd>Closed</dd>
+      </dl>
+      <p style="margin:1rem 0 0.4rem">
+        <strong style="color:var(--text)">Phone</strong> ·
+        <a class="inline" href="tel:+19205550187">(920) 555-0187</a>
+        <span style="color:#71717a"> (sample)</span>
+      </p>
+      <p style="margin:0">Manitowoc-area lakeshore · fictional address for this demo.</p>
+      <a class="cta primary" href="tel:+19205550187">Call Harbor Goods</a>
+      <a class="cta ghost" href="#top">Back to top</a>
+    </div>
+
+    <footer>
+      Sample demo for <a href="../../">Trailheadai</a> · Harbor Goods Market · fictional WI shop<br />
+      Built as a Trailheadai portfolio example — not a live storefront.
+    </footer>
+  </main>
+</body>
+</html>
