@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Lockdown: the page may load only its own files. No fonts, scripts, forms or data go anywhere else. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Trailhead AI · Phone-friendly pages for local businesses · Wisconsin</title>
+  <meta name="description" content="Trailhead AI builds simple, phone-first web pages for local businesses in Wisconsin. Practice preview.">
+  <link rel="icon" href="img/peak.png">
+  <style>
+    :root {
+      --bg: #070707; --bg-elev: #111112; --line: #26262a; --text: #f7f5f1; --muted: #a8a49c;
+      --cream: #e8e0d4; --cream-ink: #18181b; --amber: #d9a25b; --amber-soft: #f0cf9e;
+      --head: "Arial Black", "Helvetica Neue", Arial, system-ui, sans-serif;
+      --body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--body); background: var(--bg); color: var(--text); line-height: 1.55; font-size: 17px; }
+    img { max-width: 100%; height: auto; }
+    a { color: var(--amber-soft); }
+    .ribbon { background: #1d1508; border-bottom: 1px solid #4a3818; color: #f6e3c2; font-size: 0.8rem; text-align: center; padding: 0.45rem 1rem; line-height: 1.35; }
+    .ribbon strong { letter-spacing: 0.08em; text-transform: uppercase; }
+    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.25rem; }
+    header.top { position: sticky; top: 0; z-index: 10; background: rgba(7,7,7,0.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.55rem; padding-bottom: 0.55rem; }
+    .brand { display: flex; align-items: center; gap: 0.65rem; color: var(--text); text-decoration: none; }
+    .brand img { width: 40px; height: 34px; }
+    .wordmark { font-family: var(--head); font-size: 0.95rem; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.06em; }
+    .wordmark span { display: block; font-family: var(--body); font-weight: 600; font-size: 0.66rem; letter-spacing: 0.22em; color: var(--muted); }
+    nav.links { display: none; gap: 1.2rem; font-size: 0.92rem; }
+    nav.links a { color: var(--muted); text-decoration: none; }
+    nav.links a:hover { color: var(--text); }
+    .btn { display: inline-block; text-align: center; padding: 0.9rem 1.2rem; border-radius: 999px; font-size: 1rem; font-weight: 700; text-decoration: none; border: 1px solid transparent; line-height: 1.2; }
+    .btn.sm { padding: 0.55rem 0.95rem; font-size: 0.9rem; }
+    .btn.cream { background: var(--cream); color: var(--cream-ink); }
+    .btn.ghost { background: transparent; color: var(--text); border-color: #5c5a55; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line);
+      background: radial-gradient(ellipse 70% 55% at 75% 30%, rgba(217,162,91,0.10), transparent 70%), var(--bg); }
+    .hero .wrap { position: relative; z-index: 2; padding-top: 2rem; padding-bottom: 9.5rem; }
+    .hero-grid { display: grid; gap: 1.5rem; align-items: center; }
+    .lockup { width: 7.5rem; display: block; margin: 0 0 0.9rem; }
+    .eyebrow { font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber-soft); margin: 0 0 0.7rem; font-weight: 700; }
+    h1, h2, h3 { font-family: var(--head); letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2rem, 8vw, 3.4rem); line-height: 1.05; margin: 0 0 0.9rem; }
+    h2 { font-size: clamp(1.45rem, 5vw, 2rem); line-height: 1.12; margin: 0 0 0.6rem; }
+    h3 { font-size: 1.15rem; margin: 0; }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .lead { font-size: 1.1rem; max-width: 34rem; }
+    .cta-row { display: grid; gap: 0.6rem; margin: 1.25rem 0 0.5rem; }
+    .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+    .facts li { background: rgba(17,17,18,0.85); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.85rem; color: var(--muted); }
+    .ridges { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 11rem; z-index: 1; display: block; }
+    .hero-art { display: none; }
+
+    section.block { padding: 3rem 0 0.75rem; scroll-margin-top: 4.5rem; }
+    .sec-head { margin-bottom: 1.25rem; max-width: 40rem; }
+    .num { font-family: var(--head); color: var(--amber); font-size: 0.85rem; letter-spacing: 0.12em; display: block; margin-bottom: 0.35rem; }
+    .cards { display: grid; gap: 0.9rem; }
+    .card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: 1.1rem; padding: 1.2rem 1.25rem; }
+    .card.featured { background: var(--cream); color: var(--cream-ink); border-color: transparent; }
+    .card.featured p, .card.featured li, .card.featured .meta, .card.featured .label { color: #3f3f46; }
+    .card.featured .price { color: var(--cream-ink); }
+    .card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; }
+    .meta { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .price { font-family: var(--head); font-size: 2rem; margin: 0.3rem 0 0.6rem; color: var(--text); }
+    .label { font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0.75rem 0 0.15rem; }
+    ul.check { padding-left: 1.1rem; margin: 0.25rem 0 0; }
+    ul.check li { margin: 0.3rem 0; color: var(--muted); }
+    .fine { font-size: 0.88rem; color: #85827b; margin-top: 0.9rem; }
+
+    /* Sample work */
+    a.demo { display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+    a.demo:hover { border-color: #5c5a55; transform: translateY(-2px); }
+    .demo-art { height: 7.5rem; border-radius: 0.8rem; margin: -0.2rem -0.25rem 0.9rem; border: 1px solid var(--line); position: relative; overflow: hidden; }
+    .demo-art span { position: absolute; left: 0.75rem; bottom: 0.6rem; font-family: var(--head); font-size: 1.35rem; color: rgba(255,255,255,0.92); text-transform: uppercase; letter-spacing: 0.02em; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+    .art-detail { background: linear-gradient(135deg, #1b1236 0%, #3a2577 55%, #6f4cff 100%); }
+    .art-plumb { background: linear-gradient(135deg, #07202e 0%, #0d4a63 55%, #2aa7c9 100%); }
+    .art-shop  { background: linear-gradient(135deg, #2a1a0c 0%, #6b4220 55%, #d9a25b 100%); }
+    .demo p { margin: 0.35rem 0 0.8rem; }
+    .go { margin-top: auto; font-weight: 700; color: var(--amber-soft); font-size: 0.95rem; }
+
+    /* Steps */
+    .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; counter-reset: s; }
+    .steps li { background: var(--bg-elev); border: 1px solid var(--line); border-radius: 1rem; padding: 1rem 1.15rem; display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.6rem; align-items: center; }
+    .steps .n { font-family: var(--head); color: var(--bg); background: var(--amber); width: 2.3rem; height: 2.3rem; border-radius: 50%; display: grid; place-items: center; font-size: 0.95rem; }
+    .steps b { display: block; color: var(--text); }
+    .steps small { color: var(--muted); font-size: 0.9rem; }
+    .trail-note { margin-top: 0.9rem; }
+
+    /* About */
+    .about { display: grid; gap: 1rem; align-items: start; }
+    .placeholder { border: 1px dashed #8a6a3a; background: #17110a; color: #f0cf9e; border-radius: 0.8rem; padding: 0.75rem 0.9rem; font-size: 0.9rem; margin: 0 0 1rem; line-height: 1.45; }
+    .placeholder b { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; display: block; color: #fbe6c4; margin-bottom: 0.15rem; }
+    .portrait { aspect-ratio: 1 / 1; max-width: 12rem; border-radius: 1rem; border: 1px dashed #8a6a3a; background: #17110a; display: grid; place-items: center; text-align: center; color: #c9a77a; font-size: 0.85rem; padding: 1rem; }
+
+    /* Contact */
+    .cashtag { font-family: var(--head); font-size: 1.6rem; color: var(--text); margin: 0.2rem 0 0.6rem; overflow-wrap: anywhere; }
+    .stack { display: grid; gap: 0.6rem; margin-top: 0.75rem; }
+    footer { margin-top: 3rem; border-top: 1px solid var(--line); padding: 1.5rem 0 2.25rem; font-size: 0.84rem; color: #85827b; text-align: center; }
+    footer p { color: #85827b; margin: 0 0 0.35rem; }
+    footer img { width: 34px; opacity: .8; }
+
+    @media (min-width: 720px) {
+      nav.links { display: flex; }
+      .cta-row { grid-template-columns: repeat(2, max-content); }
+      .cards.three { grid-template-columns: repeat(3, 1fr); }
+      .cards.two { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .about { grid-template-columns: 14rem 1fr; gap: 2rem; }
+    }
+    @media (min-width: 960px) {
+      .hero .wrap { padding-top: 3.5rem; padding-bottom: 12rem; }
+      .hero-grid { grid-template-columns: 1.25fr 0.75fr; }
+      .hero-art { display: block; }
+      .hero-art img { width: 100%; max-width: 21rem; margin-left: auto; display: block; }
+      .lockup { display: none; }
+      .ridges { height: 14rem; }
+      .steps { grid-template-columns: repeat(4, 1fr); }
+      .steps li { grid-template-columns: 1fr; align-items: start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } a.demo { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="ribbon" role="note"><strong>Practice preview</strong> · Not the live Trailhead AI site yet. Nothing on this page sends anything anywhere.</div>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Trailhead AI, back to top">
+        <img src="img/peak.png" alt="" width="40" height="34">
+        <div class="wordmark">Trailhead<span>AI · Wisconsin</span></div>
+      </a>
+      <nav class="links" aria-label="Sections">
+        <a href="#offers">Offers</a>
+        <a href="#work">Sample work</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
+      </nav>
+      <a class="btn cream sm" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <img class="lockup" src="img/trailhead-mark.png" alt="Trailhead AI logo: a white mountain peak with a trail running up the middle" width="500" height="515">
+            <p class="eyebrow">Phone-friendly pages for local businesses</p>
+            <h1 id="hero-h">A clean page your customers can actually use.</h1>
+            <p class="lead">Trailhead AI builds simple, phone-first web pages for shops, salons, and local services, without a big agency bill or a maze of apps.</p>
+            <div class="cta-row">
+              <a class="btn cream" href="#work">See sample pages ↓</a>
+              <a class="btn ghost" href="#offers">See offers ↓</a>
+            </div>
+            <ul class="facts" aria-label="Quick facts">
+              <li>Wisconsin</li>
+              <li>Pages from $85</li>
+              <li>Pay with Cash App</li>
+              <li>Soft launch</li>
+            </ul>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <img src="img/trailhead-mark.png" alt="" width="500" height="515">
+          </div>
+        </div>
+      </div>
+      <!-- Abstract ridgelines + a trail climbing to the peak. Drawn shapes only, not a real place. -->
+      <svg class="ridges" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 150 L120 95 L210 130 L330 60 L430 120 L560 40 L690 115 L800 90 L920 55 L1050 110 L1200 120 L1200 220 L0 220 Z" fill="#141413"/>
+        <path d="M0 185 L90 150 L200 175 L320 120 L450 170 L600 105 L740 165 L870 125 L1000 170 L1110 140 L1200 160 L1200 220 L0 220 Z" fill="#0f0f0e"/>
+        <path d="M0 210 L150 190 L300 205 L470 180 L620 200 L780 182 L950 203 L1100 188 L1200 198 L1200 220 L0 220 Z" fill="#0a0a0a"/>
+        <path d="M420 216 C 560 205, 640 185, 720 172 S 840 150, 880 128 S 920 95, 920 58" fill="none" stroke="#d9a25b" stroke-width="2.5" stroke-dasharray="7 9" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity="0.75"/>
+        
+      </svg>
+    </section>
+
+    <div class="wrap">
+      <section class="block" id="offers" aria-labelledby="of-h">
+        <div class="sec-head">
+          <span class="num">01 · OFFERS</span>
+          <h2 id="of-h">Pick where you start</h2>
+          <p>Three simple ways in. Start small, grow later.</p>
+        </div>
+        <div class="cards three">
+          <div class="card">
+            <div class="card-top"><h3>Page</h3><span class="meta">Starter</span></div>
+            <p class="price">$85</p>
+            <div class="label">Included</div>
+            <ul class="check">
+              <li>One phone-friendly page</li>
+              <li>Your name + tagline</li>
+              <li>Up to 3 cards of content</li>
+              <li>Live URL when done</li>
+            </ul>
+            <div class="label">Not included</div>
+            <ul class="check">
+              <li>Bots, custom domain, extra pages</li>
+              <li>Unlimited revisions or deep setup</li>
+            </ul>
+          </div>
+          <div class="card featured">
+            <div class="card-top"><h3>Setup Pack</h3><span class="meta">Usual</span></div>
+            <p class="price">$300</p>
+            <div class="label">Included</div>
+            <ul class="check">
+              <li>The page above</li>
+              <li>Contact form → your email</li>
+              <li>Domain wire (you buy the domain)</li>
+              <li>Notes pass for your 3 cards</li>
+              <li>2 revision rounds in 14 days</li>
+              <li>Free GitHub Pages hosting</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-top"><h3>Local Site</h3><span class="meta">Scoped</span></div>
+            <p class="price">$1,100</p>
+            <div class="label">Included</div>
+            <ul class="check">
+              <li>1–3 pages</li>
+              <li>Brand pass</li>
+              <li>Form + basic analytics</li>
+              <li>Domain + host wire</li>
+              <li>30-minute kickoff</li>
+              <li>Written scope</li>
+              <li>3 revision rounds in 21 days</li>
+              <li>Optional GBP / map / review prompts (text only)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="work" aria-labelledby="wk-h">
+        <div class="sec-head">
+          <span class="num">02 · SAMPLE WORK</span>
+          <h2 id="wk-h">See what a page looks like</h2>
+          <p>Three phone-friendly demo pages. Tap one to open it.</p>
+        </div>
+        <div class="cards three">
+          <a class="card demo" href="../demos/five-oh-garage/">
+            <div class="demo-art art-detail" aria-hidden="true"><span>Five-Oh</span></div>
+            <div class="card-top"><h3>Five-Oh Garage</h3><span class="meta">Detailing</span></div>
+            <p>Mobile detailing · Manitowoc WI · from $150</p>
+            <span class="go">Open demo →</span>
+          </a>
+          <a class="card demo" href="../demos/lakeshore-plumbing/">
+            <div class="demo-art art-plumb" aria-hidden="true"><span>Bayshore</span></div>
+            <div class="card-top"><h3>Bayshore Plumbing</h3><span class="meta">Plumbing</span></div>
+            <p>Emergency + scheduled · Door County / lakeshore vibe</p>
+            <span class="go">Open demo →</span>
+          </a>
+          <a class="card demo" href="../demos/harbor-goods/">
+            <div class="demo-art art-shop" aria-hidden="true"><span>Harbor Goods</span></div>
+            <div class="card-top"><h3>Harbor Goods Market</h3><span class="meta">Retail</span></div>
+            <p>Small local shop · Manitowoc-area harbor vibe</p>
+            <span class="go">Open demo →</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="block" id="how" aria-labelledby="hw-h">
+        <div class="sec-head">
+          <span class="num">03 · HOW IT WORKS</span>
+          <h2 id="hw-h">Four steps to the top</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="n">1</span><span><b>You pay on Cash App.</b><small>$TrailHeadaiwi</small></span></li>
+          <li><span class="n">2</span><span><b>Travis green-lights the build.</b></span></li>
+          <li><span class="n">3</span><span><b>We build your page.</b></span></li>
+          <li><span class="n">4</span><span><b>You get a live URL.</b></span></li>
+        </ol>
+      </section>
+
+      <section class="block" id="about" aria-labelledby="ab-h">
+        <div class="sec-head">
+          <span class="num">04 · ABOUT</span>
+          <h2 id="ab-h">Who's behind Trailhead AI</h2>
+        </div>
+        <div class="about">
+          <div class="portrait" role="img" aria-label="Photo spot, empty for now">PHOTO SPOT<br>Travis adds his own photo or logo later</div>
+          <div>
+            <p class="lead">Trailhead AI is Travis Lee, in Wisconsin. This is a soft launch, and the first buyers are people he knows.</p>
+            <div class="placeholder"><b>Placeholder · Travis to write</b>A few sentences in your own words: who you are, where in Wisconsin, and why you started building pages for local businesses.</div>
+            <div class="placeholder"><b>Placeholder · Travis to decide</b>Service area (just Manitowoc County, the lakeshore, all of Wisconsin, or anywhere?).</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="contact" aria-labelledby="ct-h">
+        <div class="sec-head">
+          <span class="num">05 · PAY &amp; CONTACT</span>
+          <h2 id="ct-h">Ready to start?</h2>
+          <p>No Stripe. No auto-checkout. Email first if you have questions.</p>
+        </div>
+        <div class="cards two">
+          <div class="card">
+            <div class="label">Cash App</div>
+            <p class="cashtag">$TrailHeadaiwi</p>
+            <p>Send payment to <strong>$TrailHeadaiwi</strong> on Cash App.</p>
+            <div class="stack"><a class="btn cream" href="https://cash.app/$TrailHeadaiwi">Open Cash App →</a></div>
+          </div>
+          <div class="card">
+            <div class="label">Email</div>
+            <p class="cashtag" style="font-size:1.15rem">trailheadaiwisco@gmail.com</p>
+            <p>Tell us your business and what you want on your page.</p>
+            <div class="stack"><a class="btn ghost" href="mailto:trailheadaiwisco@gmail.com?subject=Trailhead%20AI%20interest">Email Trailhead AI</a></div>
+          </div>
+        </div>
+        <div class="placeholder" style="margin-top:1rem"><b>Placeholder · Travis to decide</b>Phone number or text line? Not on the site yet. Only add one if you want people calling you.</div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="wrap">
+        <img src="img/peak.png" alt="" width="34" height="29">
+        <p>Trailhead AI · Travis Lee · Wisconsin</p>
+        <p>Practice preview. Custom domain later. Hosted on free GitHub Pages for now.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
