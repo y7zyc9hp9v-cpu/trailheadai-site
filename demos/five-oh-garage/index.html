@@ -167,6 +167,12 @@
     .card.featured .pkg-price { color: #c4b5fd; }
     ul { padding-left: 1.1rem; margin: 0.25rem 0 0; }
     li { margin: 0.35rem 0; color: var(--muted); }
+    .ba-list { display: grid; gap: 1rem; }
+    .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; max-width: 600px; }
+    .ba { margin: 0; position: relative; }
+    .ba img { display: block; width: 100%; max-width: 295px; height: auto; border-radius: 0.9rem; border: 1px solid var(--line); }
+    .ba figcaption { position: absolute; top: 0.5rem; left: 0.5rem; background: rgba(0,0,0,0.7); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 999px; }
+    .ba figcaption.after { background: rgba(124,58,237,0.85); }
     .gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -323,12 +329,13 @@
     </div>
 
     <h2>Before / after</h2>
-    <p style="font-size:0.9rem">Gallery placeholders — real client photos go here when you send them.</p>
-    <div class="gallery">
-      <div class="ph"><strong>Before</strong>Exterior wash placeholder</div>
-      <div class="ph"><strong>After</strong>Exterior wash placeholder</div>
-      <div class="ph"><strong>Before</strong>Interior clean placeholder</div>
-      <div class="ph"><strong>After</strong>Interior clean placeholder</div>
+    <p style="font-size:0.9rem">Driver's seat stain, gone. Real job from Five-Oh Garage.</p>
+    <!-- Before/after slot: swap the two img src files (img/before-1.jpg, img/after-1.jpg) to change the pair. Copy a .ba-pair block to add more. -->
+    <div class="ba-list">
+      <div class="ba-pair">
+        <figure class="ba"><img src="img/before-1.jpg" width="443" height="590" loading="lazy" alt="Before: stained gray cloth driver's seat" /><figcaption>Before</figcaption></figure>
+        <figure class="ba"><img src="img/after-1.jpg" width="443" height="590" loading="lazy" alt="After: the same driver's seat, clean" /><figcaption class="after">After</figcaption></figure>
+      </div>
     </div>
 
     <h2>Contact</h2>
