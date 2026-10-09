@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Lockdown: the page may load only its own files. No fonts, scripts, forms or data go anywhere else. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'self'; form-action 'none'; base-uri 'none'">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Five-Oh Garage Mobile Detailing · Manitowoc County, WI</title>
+  <meta name="description" content="Five-Oh Garage Mobile Detailing. Interior Refresh $150, Total Reset $200. We come to you, anywhere in Manitowoc County.">
+  <link rel="icon" href="img/logo.jpg">
+  <style>
+    :root {
+      --bg: #09090b; --bg-elev: #111113; --line: #27272a; --text: #fafafa; --muted: #a1a1aa;
+      --cream: #e8e0d4; --cream-ink: #18181b; --purple: #6f4cff; --purple-soft: #c4b5fd;
+      --purple-bg: #16122a; --purple-line: #4c3d7a; --red: #ef4444; --ok: #22c55e;
+      --head: "Arial Black", "Helvetica Neue", Arial, system-ui, sans-serif;
+      --body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: var(--body); background: var(--bg); color: var(--text);
+      line-height: 1.5; font-size: 17px;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: var(--purple-soft); }
+    .ribbon {
+      background: #1a1528; border-bottom: 1px solid #3b2f5c; color: #e9e0ff;
+      font-size: 0.8rem; text-align: center; padding: 0.45rem 1rem; line-height: 1.35;
+    }
+    .ribbon strong { letter-spacing: 0.08em; text-transform: uppercase; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.25rem; }
+    header.top {
+      position: sticky; top: 0; z-index: 10; background: rgba(9,9,11,0.92);
+      border-bottom: 1px solid var(--line);
+    }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+    .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--text); text-decoration: none; }
+    .brand img { width: 44px; height: 44px; border-radius: 50%; }
+    .wordmark { font-family: var(--head); font-size: 0.9rem; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.02em; }
+    .wordmark span { display: block; font-family: var(--body); font-weight: 600; font-size: 0.66rem; letter-spacing: 0.14em; color: var(--muted); }
+    nav.links { display: none; gap: 1.1rem; font-size: 0.92rem; }
+    nav.links a { color: var(--muted); text-decoration: none; }
+    nav.links a:hover { color: var(--text); }
+    .btn {
+      display: inline-block; text-align: center; padding: 0.9rem 1.15rem; border-radius: 999px;
+      font-size: 1rem; font-weight: 700; text-decoration: none; border: 1px solid transparent;
+      cursor: pointer; font-family: var(--body); line-height: 1.2;
+    }
+    .btn.sm { padding: 0.55rem 0.95rem; font-size: 0.9rem; }
+    .btn.primary { background: var(--purple); color: #fff; }
+    .btn.cream { background: var(--cream); color: var(--cream-ink); }
+    .btn.ghost { background: transparent; color: var(--text); border-color: #63636b; }
+    .btn:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--purple-soft); outline-offset: 2px; }
+    section { padding: 2.25rem 0 0.5rem; scroll-margin-top: 4.5rem; }
+    .eyebrow { font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.6rem; font-weight: 600; }
+    h1, h2, h3 { font-family: var(--head); letter-spacing: -0.01em; }
+    h1 { font-size: clamp(1.75rem, 7vw, 2.6rem); line-height: 1.1; margin: 0 0 0.7rem; }
+    h2 { font-size: clamp(1.35rem, 5vw, 1.75rem); line-height: 1.15; margin: 0 0 0.6rem; }
+    h3 { font-size: 1.15rem; margin: 0 0 0.3rem; }
+    p { color: var(--muted); margin: 0 0 0.85rem; }
+    .lead { font-size: 1.05rem; }
+    .hero { padding-top: 1.25rem; }
+    .cover { display: block; width: 100%; max-width: 851px; border-radius: 1rem; border: 1px solid var(--line); margin: 0 0 1.25rem; }
+    .cta-row { display: grid; gap: 0.6rem; margin: 1rem 0 0.25rem; }
+    .facts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .facts li { background: var(--bg-elev); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; color: var(--muted); }
+    .card { background: var(--bg-elev); border: 1px solid var(--line); border-radius: 1.1rem; padding: 1.15rem 1.2rem; }
+    .card.featured { background: var(--purple-bg); border-color: var(--purple-line); }
+    .cards { display: grid; gap: 0.9rem; }
+    .meta { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .pkg-price { font-family: var(--head); font-size: 1.7rem; margin: 0.2rem 0 0.5rem; color: var(--text); }
+    .card.featured .pkg-price { color: var(--purple-soft); }
+    ul.check { padding-left: 1.1rem; margin: 0.35rem 0 0; }
+    ul.check li { margin: 0.3rem 0; color: var(--muted); }
+    .size-note { margin-top: 0.9rem; }
+    .size-note p { margin: 0; }
+    .size-note strong, .card strong { color: var(--text); }
+    .soon { margin-top: 0.9rem; border-style: dashed; }
+    .soon p { margin: 0; font-size: 0.92rem; }
+    /* Price calculator */
+    .calc { margin-top: 1.25rem; }
+    fieldset { border: 0; margin: 0 0 1rem; padding: 0; min-width: 0; }
+    legend { font-weight: 700; margin-bottom: 0.5rem; padding: 0; color: var(--text); }
+    .choices { display: grid; gap: 0.5rem; }
+    .choice { position: relative; }
+    .choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .choice label {
+      display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+      padding: 0.8rem 0.95rem; border: 1px solid #63636b; border-radius: 0.8rem; cursor: pointer; background: #0d0d10;
+    }
+    .choice label span.add { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+    .choice input:checked + label { border-color: var(--purple); background: var(--purple-bg); box-shadow: 0 0 0 1px var(--purple) inset; }
+    .choice input:focus-visible + label { outline: 3px solid var(--purple-soft); outline-offset: 2px; }
+    .total-box { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: 0.9rem; margin-top: 0.25rem; }
+    .total-box .label { color: var(--muted); }
+    .total-box output, .total-box .amt { font-family: var(--head); font-size: 1.9rem; color: var(--text); }
+    .breakdown { font-size: 0.88rem; margin: 0.25rem 0 0.75rem; }
+    /* Before / after (same component as the first demo) */
+    .ba-list { display: grid; gap: 1rem; }
+    .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; max-width: 600px; }
+    .ba { margin: 0; position: relative; }
+    .ba img { display: block; width: 100%; max-width: 295px; height: auto; border-radius: 0.9rem; border: 1px solid var(--line); }
+    .ba figcaption { position: absolute; top: 0.5rem; left: 0.5rem; background: rgba(0,0,0,0.72); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 999px; }
+    .ba figcaption.after { background: rgba(124,58,237,0.88); }
+    .work-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-start; }
+    .work-row .ba-list { flex: 1 1 18rem; max-width: 600px; }
+    .work { margin: 0; flex: 0 1 295px; max-width: 295px; }
+    .work img { display: block; width: 100%; max-width: 295px; border-radius: 0.9rem; border: 1px solid var(--line); }
+    .work figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+    /* Booking form */
+    .form-card { padding: 1.25rem; }
+    .field { margin: 0 0 1rem; }
+    .field label, .field .lbl { display: block; font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
+    .field .hint { display: block; font-weight: 400; font-size: 0.85rem; color: var(--muted); }
+    .req { color: var(--purple-soft); }
+    input[type=text], input[type=tel], select, textarea {
+      width: 100%; font: inherit; font-size: 16px; color: var(--text); background: #0d0d10;
+      border: 1px solid #63636b; border-radius: 0.7rem; padding: 0.75rem 0.85rem;
+    }
+    textarea { min-height: 5.5rem; resize: vertical; }
+    select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 1.1rem) 55%, calc(100% - 0.75rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; padding-right: 2.2rem; }
+    .row2 { display: grid; gap: 0 0.75rem; }
+    .err { display: none; color: #fca5a5; font-size: 0.88rem; margin-top: 0.3rem; }
+    .field.invalid input, .field.invalid select { border-color: var(--red); }
+    .field.invalid .err { display: block; }
+    .placeholder {
+      border: 1px dashed #6b5aa8; background: #120f1f; color: #c4b5fd; border-radius: 0.8rem;
+      padding: 0.7rem 0.85rem; font-size: 0.85rem; margin: 0 0 1rem; line-height: 1.4;
+    }
+    .placeholder b { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; display: block; color: #e9e0ff; margin-bottom: 0.15rem; }
+    .form-total { background: var(--purple-bg); border: 1px solid var(--purple-line); border-radius: 0.9rem; padding: 0.75rem 1rem; margin: 0 0 1rem; }
+    .form-total .total-box { border: 0; padding: 0; margin: 0; }
+    .form-total .breakdown { margin: 0.15rem 0 0; }
+    .submit { width: 100%; }
+    .thanks { display: none; }
+    .thanks.show { display: block; }
+    .thanks h3 { font-size: 1.35rem; }
+    .thanks dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 0.9rem; margin: 0.75rem 0 1rem; font-size: 0.95rem; }
+    .thanks dt { color: var(--muted); }
+    .thanks dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+    .mb0 { margin: 0; }
+    .pay-note { margin-top: 0.6rem; }
+    .contact-list p { margin: 0 0 0.4rem; }
+    footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding: 1.25rem 0 2rem; font-size: 0.82rem; color: #84848d; text-align: center; }
+    footer p { color: #84848d; margin: 0 0 0.35rem; }
+    @media (min-width: 720px) {
+      nav.links { display: flex; }
+      .cta-row { grid-template-columns: repeat(3, max-content); }
+      .cards.two { grid-template-columns: 1fr 1fr; }
+      .row2 { grid-template-columns: 1fr 1fr; }
+      .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem; align-items: start; }
+      .calc .choices { grid-template-columns: 1fr 1fr; }
+      .calc fieldset.size .choices { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ribbon" role="note"><strong>Practice preview</strong> · Not the live site. Bookings here are not sent anywhere.</div>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Five-Oh Garage, back to top">
+        <img src="img/logo.jpg" width="200" height="200" alt="">
+        <span class="wordmark">Five-Oh Garage<span>Mobile Detailing</span></span>
+      </a>
+      <nav class="links" aria-label="Sections">
+        <a href="#packages">Packages</a>
+        <a href="#work">Our work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn primary sm" href="#book">Book</a>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- 1. HERO -->
+    <section class="hero" aria-labelledby="hero-h">
+      <img class="cover" src="img/cover.jpg" width="851" height="315" alt="Five-Oh Garage Mobile Detailing. Packages starting at $150.">
+      <p class="eyebrow">Mobile detailing · Manitowoc County, WI</p>
+      <h1 id="hero-h">A clean car without leaving your driveway.</h1>
+      <p class="lead">Five-Oh Garage comes to you with everything needed to detail your car, truck or SUV. Two simple packages, starting at $150.</p>
+      <div class="cta-row">
+        <!-- [html-validate-disable-next tel-non-breaking: button label, not a bare number] -->
+        <a class="btn primary" href="tel:+19206772508">Call (920)&nbsp;677&#8209;2508</a>
+        <a class="btn cream" href="sms:+19206772508">Text Anthony</a>
+        <a class="btn ghost" href="#book">Request a booking</a>
+      </div>
+      <ul class="facts">
+        <li>We come to you</li>
+        <li>Mon–Sat from 8 AM</li>
+        <li>Cash or Venmo</li>
+      </ul>
+    </section>
+
+    <!-- 2. PACKAGES + PRICE CALCULATOR -->
+    <section id="packages" aria-labelledby="pk-h">
+      <p class="eyebrow">Packages</p>
+      <h2 id="pk-h">Pick your package</h2>
+      <p>Same price for every car. Bigger vehicles add a flat amount, shown below.</p>
+      <div class="cards two">
+        <div class="card">
+          <span class="meta">Inside</span>
+          <h3>Interior Refresh</h3>
+          <p class="pkg-price">$150</p>
+          <p>A full inside clean for the car you live in every day.</p>
+          <ul class="check">
+            <li>Door jambs</li>
+            <li>Vacuum carpets &amp; seats</li>
+            <li>Streak-free glass</li>
+            <li>Leather conditioned</li>
+            <li>UV protectant on interior plastics</li>
+          </ul>
+        </div>
+        <div class="card featured">
+          <span class="meta">Inside &amp; out</span>
+          <h3>Total Reset</h3>
+          <p class="pkg-price">$200</p>
+          <p>Everything in the Interior Refresh, plus the outside and a deep clean of the seats and carpets.</p>
+          <ul class="check">
+            <li>Everything in Interior Refresh</li>
+            <li>2-step hand wash</li>
+            <li>Exterior plastic UV protectant</li>
+            <li>Wheels &amp; tires cleaned</li>
+            <li>Tire shine</li>
+            <li>Shampoo + extraction of seats &amp; carpets</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card size-note">
+        <p><strong>Vehicle size:</strong> Mid-size SUV <strong>+$25</strong> · Trucks &amp; full-size SUVs <strong>+$50</strong> (either package)</p>
+      </div>
+      <div class="card soon">
+        <p><strong>Coming soon:</strong> headlight restoration and ceramic wax.</p>
+      </div>
+
+      <div class="card calc" id="calc">
+        <h3>What will it cost?</h3>
+        <p>Pick a package and your vehicle. The total updates right away.</p>
+        <fieldset>
+          <legend>Package</legend>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="calc-pkg" id="cp-ir" value="ir" checked><label for="cp-ir">Interior Refresh <span class="add">$150</span></label></div>
+            <div class="choice"><input type="radio" name="calc-pkg" id="cp-tr" value="tr"><label for="cp-tr">Total Reset <span class="add">$200</span></label></div>
+          </div>
+        </fieldset>
+        <fieldset class="size">
+          <legend>Vehicle</legend>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="calc-size" id="cs-car" value="car" checked><label for="cs-car">Car <span class="add">+$0</span></label></div>
+            <div class="choice"><input type="radio" name="calc-size" id="cs-mid" value="mid"><label for="cs-mid">Mid-size SUV <span class="add">+$25</span></label></div>
+            <div class="choice"><input type="radio" name="calc-size" id="cs-big" value="big"><label for="cs-big">Truck or full-size SUV <span class="add">+$50</span></label></div>
+          </div>
+        </fieldset>
+        <div class="total-box" aria-live="polite">
+          <span class="label">Your total</span>
+          <output id="calc-total" for="cp-ir cp-tr cs-car cs-mid cs-big">$150</output>
+        </div>
+        <p class="breakdown" id="calc-breakdown">Interior Refresh $150 · Car +$0</p>
+        <button type="button" class="btn primary submit" id="calc-book">Book this</button>
+      </div>
+    </section>
+
+    <!-- 3. BEFORE / AFTER -->
+    <section id="work" aria-labelledby="wk-h">
+      <p class="eyebrow">Our work</p>
+      <h2 id="wk-h">Before and after</h2>
+      <p>A stained driver's seat, cleaned up.</p>
+      <!-- BEFORE/AFTER SLOT: to swap the pair, replace img/before-1.jpg and img/after-1.jpg (keep the names,
+           or edit the src). To add a pair, copy one .ba-pair block. Photos are 443x590 previews: shown at
+           295px max so they are never blown up. Update width/height and alt text if the new photos differ.
+           Placeholder pair from his public Facebook page; Anthony's real before/after shots replace it. -->
+      <div class="work-row">
+      <div class="ba-list">
+        <div class="ba-pair">
+          <figure class="ba"><img src="img/before-1.jpg" width="443" height="590" loading="lazy" alt="Before: stained gray cloth driver's seat"><figcaption>Before</figcaption></figure>
+          <figure class="ba"><img src="img/after-1.jpg" width="443" height="590" loading="lazy" alt="After: the same driver's seat, clean"><figcaption class="after">After</figcaption></figure>
+        </div>
+      </div>
+      <!-- WORK PHOTO SLOT: img/work-1.jpg (443x590). Swap the file to change it. -->
+      <figure class="work">
+        <img src="img/work-1.jpg" width="443" height="590" loading="lazy" alt="Clean truck interior: front seats, dash and floor mats">
+        <figcaption>A truck interior after a detail.</figcaption>
+      </figure>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT / SERVICE AREA -->
+    <section id="about" aria-labelledby="ab-h">
+      <p class="eyebrow">About</p>
+      <h2 id="ab-h">Local, mobile, and easy to book</h2>
+      <div class="card">
+        <p>Five-Oh Garage is a mobile detailing service run by Anthony Blish. He brings the detail to you, so there's no drop-off and no waiting around.</p>
+        <p><strong>Serving Manitowoc County.</strong></p>
+        <p><strong>Hours:</strong> Monday through Saturday, starting at 8 AM.</p>
+        <p class="mb0"><strong>Payment:</strong> cash or Venmo.</p>
+      </div>
+    </section>
+
+    <!-- 5. BOOKING FORM -->
+    <section id="book" aria-labelledby="bk-h">
+      <p class="eyebrow">Book</p>
+      <h2 id="bk-h">Request your day</h2>
+      <p>Fill this out and Anthony will text you to confirm your day and time.</p>
+
+      <div class="card form-card">
+        <form id="booking" novalidate>
+          <div class="field" id="f-pkg">
+            <label for="pkg">Package <span class="req">*</span></label>
+            <select id="pkg" name="pkg" required>
+              <option value="ir">Interior Refresh ($150)</option>
+              <option value="tr">Total Reset ($200)</option>
+            </select>
+          </div>
+          <div class="field" id="f-size">
+            <label for="size">Vehicle size <span class="req">*</span></label>
+            <select id="size" name="size" required>
+              <option value="car">Car (+$0)</option>
+              <option value="mid">Mid-size SUV (+$25)</option>
+              <option value="big">Truck or full-size SUV (+$50)</option>
+            </select>
+          </div>
+          <div class="field" id="f-veh">
+            <label for="veh">Year, make and model <span class="hint">Example: 2015 Chevy Equinox</span></label>
+            <input type="text" id="veh" name="veh" maxlength="80" autocomplete="off">
+          </div>
+          <div class="field" id="f-day">
+            <label for="day">Preferred day <span class="req">*</span> <span class="hint">Monday through Saturday</span></label>
+            <select id="day" name="day" required aria-describedby="err-day">
+              <option value="">Pick a day</option>
+            </select>
+            <span class="err" id="err-day">Please pick a day.</span>
+          </div>
+          <!-- PLACEHOLDER: DAY CAPACITY + START TIMES. Waiting on Anthony's answer to the one question about
+               his day-job days and start times. Once known: (a) on day-job days allow 1 job, on days off up to 2;
+               (b) add a start-time choice if he wants one. Today every Mon–Sat day is offered and he texts a time. -->
+          <div class="placeholder"><b>Placeholder · day limits &amp; start times</b>Every Monday to Saturday shows for now. Day limits (1 job on day-job days, up to 2 on days off) and start-time choices get added after Anthony tells us his day-job days and start times.</div>
+
+          <div class="row2">
+            <div class="field" id="f-name">
+              <label for="name">Your name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" aria-describedby="err-name" maxlength="60" autocomplete="name" required>
+              <span class="err" id="err-name">Please enter your name.</span>
+            </div>
+            <div class="field" id="f-phone">
+              <label for="phone">Mobile phone <span class="req">*</span> <span class="hint">So Anthony can text you</span></label>
+              <input type="tel" id="phone" name="phone" aria-describedby="err-phone" maxlength="20" autocomplete="tel" inputmode="tel" placeholder="(920) 555-0123" required>
+              <span class="err" id="err-phone">Please enter a 10-digit phone number.</span>
+            </div>
+          </div>
+          <div class="field" id="f-addr">
+            <label for="addr">Address for the detail <span class="req">*</span> <span class="hint">Where the vehicle will be</span></label>
+            <input type="text" id="addr" name="addr" aria-describedby="err-addr" maxlength="120" autocomplete="address-line1" required>
+            <span class="err" id="err-addr">Please enter the address.</span>
+          </div>
+          <div class="field" id="f-notes">
+            <label for="notes">Notes <span class="hint">Anything Anthony should know</span></label>
+            <textarea id="notes" name="notes" maxlength="500"></textarea>
+          </div>
+
+          <!-- PLACEHOLDER: ANTI-GHOST STEP. Waiting on Anthony's choice: Venmo deposit, "text YES to confirm", or neither.
+               Add that step here (or on the thank-you screen) once he answers. -->
+          <div class="placeholder"><b>Placeholder · confirm step</b>A Venmo deposit or a "text YES to confirm" step goes here if Anthony wants one.</div>
+
+          <div class="form-total" aria-live="polite">
+            <div class="total-box"><span class="label">Estimated total</span><span class="amt" id="form-total">$150</span></div>
+            <p class="breakdown" id="form-breakdown">Interior Refresh $150 · Car +$0</p>
+          </div>
+          <button type="submit" class="btn primary submit">Send booking request</button>
+          <p class="breakdown pay-note">Pay with cash or Venmo.</p>
+        </form>
+
+        <div class="thanks" id="thanks" tabindex="-1">
+          <div class="placeholder"><b>Practice preview · nothing was sent</b>This is the thank-you screen customers will see. On the live site, this request goes to Anthony.</div>
+          <h3>Thanks! Anthony will text you to confirm your day and time.</h3>
+          <p>Here's what you asked for:</p>
+          <dl id="summary"></dl>
+          <p>Questions before then? Call or text <a href="tel:+19206772508">(920)&nbsp;677&#8209;2508</a>.</p>
+          <button type="button" class="btn ghost" id="again">Start a new request</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT -->
+    <section id="contact" aria-labelledby="ct-h">
+      <p class="eyebrow">Contact</p>
+      <h2 id="ct-h">Call, text or email</h2>
+      <div class="card contact-list">
+        <p><strong>Phone / text:</strong> <a href="tel:+19206772508">(920)&nbsp;677&#8209;2508</a></p>
+        <p><strong>Email:</strong> <a href="mailto:realfiveohgarage@gmail.com">realfiveohgarage@gmail.com</a></p>
+        <p><strong>Venmo:</strong> <a href="https://venmo.com/u/FiveOhGarage" target="_blank" rel="noopener noreferrer">@FiveOhGarage</a></p>
+        <p><strong>Hours:</strong> Mon–Sat from 8 AM</p>
+        <div class="cta-row">
+          <!-- [html-validate-disable-next tel-non-breaking: button label, not a bare number] -->
+          <a class="btn primary" href="tel:+19206772508">Call now</a>
+          <a class="btn cream" href="sms:+19206772508">Text us</a>
+          <a class="btn ghost" href="mailto:realfiveohgarage@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Five-Oh Garage Mobile Detailing · Serving Manitowoc County, WI</p>
+      <p>(920) 677-2508 · realfiveohgarage@gmail.com</p>
+      <p>Practice preview built by <a href="../../">Trailheadai</a>. Not the live site.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
