@@ -239,30 +239,46 @@
         <p><strong>Coming soon:</strong> headlight restoration and ceramic wax.</p>
       </div>
 
-      <div class="card calc" id="calc">
+      <div class="fo-calc" id="fo-calc">
+        <style>
+          .fo-calc { margin-top: 1.25rem; padding: 1.25rem; border: 1px solid var(--line, #2a2a30); border-radius: 1rem; background: var(--bg-elev, #111113); color: var(--muted, #b4b4bc); font-family: inherit; }
+          .fo-calc h3 { margin: 0 0 0.4rem; color: var(--text, #f4f4f5); }
+          .fo-calc p { margin: 0 0 1rem; }
+          .fo-calc-field { margin: 0 0 1rem; }
+          .fo-calc-field label { display: block; font-weight: 700; margin-bottom: 0.35rem; color: var(--text, #f4f4f5); }
+          .fo-calc select { width: 100%; font: inherit; font-size: 16px; color: var(--text, #f4f4f5); background: #0d0d10; border: 1px solid #63636b; border-radius: 0.7rem; padding: 0.75rem 0.85rem; }
+          .fo-calc-total { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line, #2a2a30); padding-top: 0.9rem; }
+          .fo-calc-total output { font-family: var(--head, inherit); font-size: 1.9rem; color: var(--text, #f4f4f5); }
+          .fo-calc p.fo-calc-breakdown { font-size: 0.88rem; margin: 0.25rem 0 0.75rem; }
+          .fo-calc-book { display: block; width: 100%; font: inherit; font-weight: 700; color: #fff; background: var(--purple, #7c3aed); border: 0; border-radius: 0.8rem; padding: 0.85rem 1rem; cursor: pointer; }
+          .fo-calc-book:focus-visible, .fo-calc select:focus-visible { outline: 3px solid var(--purple-soft, #a78bfa); outline-offset: 2px; }
+          @media (min-width: 700px) { .fo-calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem; } }
+        </style>
         <h3>What will it cost?</h3>
         <p>Pick a package and your vehicle. The total updates right away.</p>
-        <fieldset>
-          <legend>Package</legend>
-          <div class="choices">
-            <div class="choice"><input type="radio" name="calc-pkg" id="cp-ir" value="ir" checked><label for="cp-ir">Interior Refresh <span class="add">$150</span></label></div>
-            <div class="choice"><input type="radio" name="calc-pkg" id="cp-tr" value="tr"><label for="cp-tr">Total Reset <span class="add">$200</span></label></div>
+        <div class="fo-calc-row">
+          <div class="fo-calc-field">
+            <label for="fo-calc-pkg">Package</label>
+            <select id="fo-calc-pkg">
+              <option value="ir">Interior Refresh ($150)</option>
+              <option value="tr">Total Reset ($200)</option>
+            </select>
           </div>
-        </fieldset>
-        <fieldset class="size">
-          <legend>Vehicle</legend>
-          <div class="choices">
-            <div class="choice"><input type="radio" name="calc-size" id="cs-car" value="car" checked><label for="cs-car">Car <span class="add">+$0</span></label></div>
-            <div class="choice"><input type="radio" name="calc-size" id="cs-mid" value="mid"><label for="cs-mid">Mid-size SUV <span class="add">+$25</span></label></div>
-            <div class="choice"><input type="radio" name="calc-size" id="cs-big" value="big"><label for="cs-big">Truck or full-size SUV <span class="add">+$50</span></label></div>
+          <div class="fo-calc-field">
+            <label for="fo-calc-size">Vehicle size</label>
+            <select id="fo-calc-size">
+              <option value="std">Standard (+$0)</option>
+              <option value="mid">Mid-size SUV (+$25)</option>
+              <option value="big">Truck or full-size SUV (+$50)</option>
+            </select>
           </div>
-        </fieldset>
-        <div class="total-box" aria-live="polite">
-          <span class="label">Your total</span>
-          <output id="calc-total" for="cp-ir cp-tr cs-car cs-mid cs-big">$150</output>
         </div>
-        <p class="breakdown" id="calc-breakdown">Interior Refresh $150 · Car +$0</p>
-        <button type="button" class="btn primary submit" id="calc-book">Book this</button>
+        <div class="fo-calc-total" aria-live="polite">
+          <span>Your total</span>
+          <output id="fo-calc-total">$150</output>
+        </div>
+        <p class="fo-calc-breakdown" id="fo-calc-breakdown">Interior Refresh $150 · Standard +$0</p>
+        <button type="button" class="fo-calc-book" id="fo-calc-book">Book this</button>
       </div>
     </section>
 
@@ -412,5 +428,6 @@
   </main>
 
   <script src="app.js"></script>
+  <script src="calc.js"></script>
 </body>
 </html>

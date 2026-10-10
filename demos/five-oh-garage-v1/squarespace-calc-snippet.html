@@ -1,0 +1,67 @@
+<!-- Five-Oh Garage price calculator: paste into a Squarespace Code Block. No libraries. -->
+      <div class="fo-calc" id="fo-calc">
+        <style>
+          .fo-calc { margin-top: 1.25rem; padding: 1.25rem; border: 1px solid var(--line, #2a2a30); border-radius: 1rem; background: var(--bg-elev, #111113); color: var(--muted, #b4b4bc); font-family: inherit; }
+          .fo-calc h3 { margin: 0 0 0.4rem; color: var(--text, #f4f4f5); }
+          .fo-calc p { margin: 0 0 1rem; }
+          .fo-calc-field { margin: 0 0 1rem; }
+          .fo-calc-field label { display: block; font-weight: 700; margin-bottom: 0.35rem; color: var(--text, #f4f4f5); }
+          .fo-calc select { width: 100%; font: inherit; font-size: 16px; color: var(--text, #f4f4f5); background: #0d0d10; border: 1px solid #63636b; border-radius: 0.7rem; padding: 0.75rem 0.85rem; }
+          .fo-calc-total { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line, #2a2a30); padding-top: 0.9rem; }
+          .fo-calc-total output { font-family: var(--head, inherit); font-size: 1.9rem; color: var(--text, #f4f4f5); }
+          .fo-calc p.fo-calc-breakdown { font-size: 0.88rem; margin: 0.25rem 0 0.75rem; }
+          .fo-calc-book { display: block; width: 100%; font: inherit; font-weight: 700; color: #fff; background: var(--purple, #7c3aed); border: 0; border-radius: 0.8rem; padding: 0.85rem 1rem; cursor: pointer; }
+          .fo-calc-book:focus-visible, .fo-calc select:focus-visible { outline: 3px solid var(--purple-soft, #a78bfa); outline-offset: 2px; }
+          @media (min-width: 700px) { .fo-calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 0.75rem; } }
+        </style>
+        <h3>What will it cost?</h3>
+        <p>Pick a package and your vehicle. The total updates right away.</p>
+        <div class="fo-calc-row">
+          <div class="fo-calc-field">
+            <label for="fo-calc-pkg">Package</label>
+            <select id="fo-calc-pkg">
+              <option value="ir">Interior Refresh ($150)</option>
+              <option value="tr">Total Reset ($200)</option>
+            </select>
+          </div>
+          <div class="fo-calc-field">
+            <label for="fo-calc-size">Vehicle size</label>
+            <select id="fo-calc-size">
+              <option value="std">Standard (+$0)</option>
+              <option value="mid">Mid-size SUV (+$25)</option>
+              <option value="big">Truck or full-size SUV (+$50)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fo-calc-total" aria-live="polite">
+          <span>Your total</span>
+          <output id="fo-calc-total">$150</output>
+        </div>
+        <p class="fo-calc-breakdown" id="fo-calc-breakdown">Interior Refresh $150 · Standard +$0</p>
+        <button type="button" class="fo-calc-book" id="fo-calc-book">Book this</button>
+      </div>
+<script>
+/* Five-Oh price calculator (safe version). Plain lookup, no libraries. Paste-safe for a Squarespace Code Block. */
+(function () {
+  'use strict';
+  var BASE = { ir: 150, tr: 200 };
+  var ADD = { std: 0, mid: 25, big: 50 };
+  var PKG_NAME = { ir: 'Interior Refresh', tr: 'Total Reset' };
+  var SIZE_NAME = { std: 'Standard', mid: 'Mid-size SUV', big: 'Truck or full-size SUV' };
+  var pkg = document.getElementById('fo-calc-pkg');
+  var size = document.getElementById('fo-calc-size');
+  if (!pkg || !size) return;
+  function update() {
+    document.getElementById('fo-calc-total').textContent = '$' + (BASE[pkg.value] + ADD[size.value]);
+    document.getElementById('fo-calc-breakdown').textContent =
+      PKG_NAME[pkg.value] + ' $' + BASE[pkg.value] + ' · ' + SIZE_NAME[size.value] + ' +$' + ADD[size.value];
+  }
+  pkg.addEventListener('change', update);
+  size.addEventListener('change', update);
+  document.getElementById('fo-calc-book').addEventListener('click', function () {
+    // The page's booking form (if any) listens for this and prefills itself.
+    document.dispatchEvent(new CustomEvent('fo-calc-book', { detail: { pkg: pkg.value, size: size.value } }));
+  });
+  update();
+})();
+</script>

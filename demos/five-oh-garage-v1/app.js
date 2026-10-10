@@ -12,24 +12,11 @@
     var p = PACKAGES[pkg] || PACKAGES.ir, z = SIZES[size] || SIZES.car;
     return { total: p.price + z.add, text: p.name + ' ' + money(p.price) + ' · ' + z.name + ' +' + money(z.add) };
   }
-  function checked(name) {
-    var el = document.querySelector('input[name="' + name + '"]:checked');
-    return el ? el.value : '';
-  }
-
-  /* ---- Packages price calculator ---- */
-  function updateCalc() {
-    var q = quote(checked('calc-pkg'), checked('calc-size'));
-    $('calc-total').textContent = money(q.total);
-    $('calc-breakdown').textContent = q.text;
-  }
-  document.querySelectorAll('input[name="calc-pkg"], input[name="calc-size"]').forEach(function (el) {
-    el.addEventListener('change', updateCalc);
-  });
-  $('calc-book').addEventListener('click', function () {
+  /* ---- Price calculator lives in calc.js; its "Book this" button sends this event ---- */
+  document.addEventListener('fo-calc-book', function (ev) {
     if ($('thanks').classList.contains('show')) resetForm(); // leave the thank-you screen first
-    $('pkg').value = checked('calc-pkg');
-    $('size').value = checked('calc-size');
+    $('pkg').value = ev.detail.pkg;
+    $('size').value = ev.detail.size === 'std' ? 'car' : ev.detail.size; // Standard = form's base size
     updateForm();
     $('book').scrollIntoView();
     $('pkg').focus({ preventScroll: true });
@@ -177,6 +164,5 @@
     $('pkg').focus();
   });
 
-  updateCalc();
   updateForm();
 })();
