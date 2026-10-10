@@ -3,7 +3,7 @@
   'use strict';
 
   var PACKAGES = { ir: { name: 'Interior Refresh', price: 150 }, tr: { name: 'Total Reset', price: 200 } };
-  var SIZES = { car: { name: 'Car', add: 0 }, mid: { name: 'Mid-size SUV', add: 25 }, big: { name: 'Truck or full-size SUV', add: 50 } };
+  var SIZES = { car: { name: 'Standard', add: 0 }, mid: { name: 'Mid-size SUV', add: 25 }, big: { name: 'Truck or full-size SUV', add: 50 } };
   var DAYS_AHEAD = 28; // how far ahead the day list reaches
 
   function $(id) { return document.getElementById(id); }
