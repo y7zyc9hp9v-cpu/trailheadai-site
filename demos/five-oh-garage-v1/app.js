@@ -14,9 +14,11 @@
   }
   /* ---- Price calculator lives in calc.js; its "Book this" button sends this event ---- */
   document.addEventListener('fo-calc-book', function (ev) {
+    var d = ev.detail || {}, sz = d.size === 'std' ? 'car' : d.size;
+    if (!PACKAGES.hasOwnProperty(d.pkg) || !SIZES.hasOwnProperty(sz)) return; // ignore unknown picks
     if ($('thanks').classList.contains('show')) resetForm(); // leave the thank-you screen first
-    $('pkg').value = ev.detail.pkg;
-    $('size').value = ev.detail.size === 'std' ? 'car' : ev.detail.size; // Standard = form's base size
+    $('pkg').value = d.pkg;
+    $('size').value = sz; // Standard = form's base size
     updateForm();
     $('book').scrollIntoView();
     $('pkg').focus({ preventScroll: true });
